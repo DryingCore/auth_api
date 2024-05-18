@@ -50,7 +50,8 @@ router.post("/login", async (req, res) => {
 		if (!passwordMatch) return res.status(400).send("Email or password is incorrect.");
 
 		const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-		res.header("Auth-Token", token).send(token);
+		res.header("auth-token", token).send(token);
+		console.log("logged")
 	} catch (err) {
 		console.error("Error during login:", err);
 		res.status(500).send("Internal Server Error");

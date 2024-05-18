@@ -14,7 +14,9 @@ app.use(express.json());
 
 // Routes
 const authRoute = require('./routes/Auth');
-app.use("/api/user", authRoute); // Route Middleware
+const postsRoute = require("./routes/AuthTestRoute")
+app.use("/api/user", authRoute);
+app.use("/api/posts", postsRoute);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
