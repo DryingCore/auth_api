@@ -51,7 +51,7 @@ router.post("/login", async (req, res) => {
 
 		const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
 		res.header("auth-token", token).send(token);
-		console.log("logged")
+		console.log("logged");
 	} catch (err) {
 		console.error("Error during login:", err);
 		res.status(500).send("Internal Server Error");
